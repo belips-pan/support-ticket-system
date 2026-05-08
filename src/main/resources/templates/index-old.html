@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Support System</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        .container { border: 2px solid #007bff; padding: 20px; display: inline-block; border-radius: 10px; }
+        h1 { color: #007bff; }
+    </style>
+</head>
+<!-- Εμφάνιση πίνακα μόνο αν η λίστα tickets δεν είναι null -->
+<div th:if="${tickets != null}">
+    <table border="1" style="width:80%; margin: 20px auto; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th>ID</th>
+                <th>Τίτλος</th>
+                <th>Κατάσταση</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="t : ${tickets}">
+                <td th:text="${t.id}"></td>
+                <td th:text="${t.title}"></td>
+                <td th:text="${t.status}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Μήνυμα αν δεν υπάρχουν tickets -->
+<p th:if="${tickets == null || tickets.isEmpty()}">Δεν βρέθηκαν εκκρεμή αιτήματα.</p>
+</html>

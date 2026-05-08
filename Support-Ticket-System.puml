@@ -1,0 +1,166 @@
+@startuml
+annotation com.example.demo.GetMapping
+annotation com.example.demo.ModelAttribute
+annotation com.example.demo.PathVariable
+annotation com.example.demo.PostMapping
+annotation com.example.demo.RequestMapping
+annotation com.example.demo.RequestParam
+annotation com.example.demo.entity.Column
+annotation com.example.demo.entity.Entity
+annotation com.example.demo.entity.GeneratedValue
+annotation com.example.demo.entity.Id
+annotation com.example.demo.entity.JoinColumn
+annotation com.example.demo.entity.Lob
+annotation com.example.demo.entity.ManyToOne
+annotation com.example.demo.entity.OneToMany
+annotation com.example.demo.entity.Table
+annotation jakarta.transaction.Transactional
+annotation java.lang.Override
+annotation org.springframework.beans.factory.annotation.Autowired
+annotation org.springframework.boot.autoconfigure.SpringBootApplication
+annotation org.springframework.context.annotation.Bean
+annotation org.springframework.context.annotation.Configuration
+annotation org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+annotation org.springframework.stereotype.Component
+annotation org.springframework.stereotype.Controller
+annotation org.springframework.stereotype.Repository
+annotation org.springframework.stereotype.Service
+annotation org.springframework.web.bind.annotation.GetMapping
+class com.example.demo.AppController
+class com.example.demo.DataInitializer
+class com.example.demo.DataSeeder
+class com.example.demo.EmailService
+class com.example.demo.MyUserDetailsService
+class com.example.demo.SecurityConfig
+class com.example.demo.SupportSystemApplication
+class com.example.demo.TicketController
+class com.example.demo.TicketService
+class com.example.demo.UserController
+class com.example.demo.entity.Message
+class com.example.demo.entity.Ticket
+class com.example.demo.entity.User
+class java.time.LocalDateTime
+class java.util.ArrayList
+class java.util.List
+class org.springframework.boot.SpringApplication
+class org.springframework.mail.SimpleMailMessage
+class org.springframework.mail.javamail.JavaMailSender
+class org.springframework.security.config.annotation.web.builders.HttpSecurity
+class org.springframework.security.core.Authentication
+class org.springframework.security.core.userdetails.UserDetails
+class org.springframework.security.core.userdetails.UsernameNotFoundException
+class org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+class org.springframework.security.crypto.password.PasswordEncoder
+class org.springframework.security.web.SecurityFilterChain
+class org.springframework.ui.Model
+interface com.example.demo.repository.MessageRepository
+interface com.example.demo.repository.TicketRepository
+interface com.example.demo.repository.UserRepository
+interface org.springframework.boot.CommandLineRunner
+interface org.springframework.data.jpa.repository.JpaRepository
+interface org.springframework.security.core.userdetails.UserDetailsService
+com.example.demo.AppController ..> com.example.demo.GetMapping
+com.example.demo.AppController ..> com.example.demo.ModelAttribute
+com.example.demo.AppController ..> com.example.demo.PathVariable
+com.example.demo.AppController ..> com.example.demo.PostMapping
+com.example.demo.AppController ..> com.example.demo.RequestParam
+com.example.demo.AppController ..> org.springframework.beans.factory.annotation.Autowired
+com.example.demo.AppController ..> org.springframework.stereotype.Controller
+com.example.demo.AppController ..> java.time.LocalDateTime
+com.example.demo.AppController ..> java.util.List
+com.example.demo.AppController ..> org.springframework.security.core.Authentication
+com.example.demo.AppController ..> org.springframework.ui.Model
+com.example.demo.DataInitializer ..> java.lang.Override
+com.example.demo.DataInitializer ..> org.springframework.beans.factory.annotation.Autowired
+com.example.demo.DataInitializer ..> org.springframework.stereotype.Component
+com.example.demo.DataInitializer ..> com.example.demo.entity.User
+com.example.demo.DataInitializer ..> org.springframework.security.crypto.password.PasswordEncoder
+com.example.demo.DataInitializer ..> com.example.demo.repository.UserRepository
+com.example.demo.DataInitializer --|> org.springframework.boot.CommandLineRunner
+com.example.demo.DataSeeder ..> java.lang.Override
+com.example.demo.DataSeeder ..> org.springframework.stereotype.Component
+com.example.demo.DataSeeder ..> com.example.demo.entity.User
+com.example.demo.DataSeeder ..> org.springframework.security.crypto.password.PasswordEncoder
+com.example.demo.DataSeeder ..> com.example.demo.repository.UserRepository
+com.example.demo.DataSeeder --|> org.springframework.boot.CommandLineRunner
+com.example.demo.EmailService ..> org.springframework.beans.factory.annotation.Autowired
+com.example.demo.EmailService ..> org.springframework.stereotype.Service
+com.example.demo.EmailService ..> org.springframework.mail.SimpleMailMessage
+com.example.demo.EmailService ..> org.springframework.mail.javamail.JavaMailSender
+com.example.demo.MyUserDetailsService ..> java.lang.Override
+com.example.demo.MyUserDetailsService ..> org.springframework.beans.factory.annotation.Autowired
+com.example.demo.MyUserDetailsService ..> org.springframework.stereotype.Service
+com.example.demo.MyUserDetailsService ..> com.example.demo.entity.User
+com.example.demo.MyUserDetailsService ..> org.springframework.security.core.userdetails.UserDetails
+com.example.demo.MyUserDetailsService ..> org.springframework.security.core.userdetails.UsernameNotFoundException
+com.example.demo.MyUserDetailsService ..> com.example.demo.repository.UserRepository
+com.example.demo.MyUserDetailsService --|> org.springframework.security.core.userdetails.UserDetailsService
+com.example.demo.SecurityConfig ..> org.springframework.context.annotation.Bean
+com.example.demo.SecurityConfig ..> org.springframework.context.annotation.Configuration
+com.example.demo.SecurityConfig ..> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+com.example.demo.SecurityConfig ..> org.springframework.security.config.annotation.web.builders.HttpSecurity
+com.example.demo.SecurityConfig ..> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+com.example.demo.SecurityConfig ..> org.springframework.security.crypto.password.PasswordEncoder
+com.example.demo.SecurityConfig ..> org.springframework.security.web.SecurityFilterChain
+com.example.demo.SupportSystemApplication ..> org.springframework.boot.autoconfigure.SpringBootApplication
+com.example.demo.SupportSystemApplication ..> org.springframework.boot.SpringApplication
+com.example.demo.TicketController ..> org.springframework.beans.factory.annotation.Autowired
+com.example.demo.TicketController ..> org.springframework.stereotype.Controller
+com.example.demo.TicketController ..> org.springframework.web.bind.annotation.GetMapping
+com.example.demo.TicketController ..> com.example.demo.entity.Ticket
+com.example.demo.TicketController ..> java.util.List
+com.example.demo.TicketController ..> org.springframework.ui.Model
+com.example.demo.TicketService ..> jakarta.transaction.Transactional
+com.example.demo.TicketService ..> org.springframework.beans.factory.annotation.Autowired
+com.example.demo.TicketService ..> org.springframework.stereotype.Service
+com.example.demo.TicketService ..> com.example.demo.entity.Ticket
+com.example.demo.TicketService ..> com.example.demo.entity.User
+com.example.demo.TicketService ..> java.util.List
+com.example.demo.TicketService ..> com.example.demo.repository.TicketRepository
+com.example.demo.TicketService ..> com.example.demo.repository.UserRepository
+com.example.demo.UserController ..> com.example.demo.GetMapping
+com.example.demo.UserController ..> com.example.demo.PathVariable
+com.example.demo.UserController ..> com.example.demo.PostMapping
+com.example.demo.UserController ..> com.example.demo.RequestMapping
+com.example.demo.UserController ..> com.example.demo.RequestParam
+com.example.demo.UserController ..> org.springframework.beans.factory.annotation.Autowired
+com.example.demo.UserController ..> org.springframework.stereotype.Controller
+com.example.demo.UserController ..> com.example.demo.entity.User
+com.example.demo.UserController ..> org.springframework.ui.Model
+com.example.demo.UserController ..> com.example.demo.repository.UserRepository
+com.example.demo.entity.Message ..> com.example.demo.entity.Column
+com.example.demo.entity.Message ..> com.example.demo.entity.Entity
+com.example.demo.entity.Message ..> com.example.demo.entity.GeneratedValue
+com.example.demo.entity.Message ..> com.example.demo.entity.Id
+com.example.demo.entity.Message ..> com.example.demo.entity.JoinColumn
+com.example.demo.entity.Message ..> com.example.demo.entity.Lob
+com.example.demo.entity.Message ..> com.example.demo.entity.ManyToOne
+com.example.demo.entity.Message ..> com.example.demo.entity.Table
+com.example.demo.entity.Message ..> java.time.LocalDateTime
+com.example.demo.entity.Ticket ..> com.example.demo.entity.Entity
+com.example.demo.entity.Ticket ..> com.example.demo.entity.GeneratedValue
+com.example.demo.entity.Ticket ..> com.example.demo.entity.Id
+com.example.demo.entity.Ticket ..> com.example.demo.entity.JoinColumn
+com.example.demo.entity.Ticket ..> com.example.demo.entity.ManyToOne
+com.example.demo.entity.Ticket ..> com.example.demo.entity.OneToMany
+com.example.demo.entity.Ticket ..> java.time.LocalDateTime
+com.example.demo.entity.Ticket ..> java.util.ArrayList
+com.example.demo.entity.Ticket ..> java.util.List
+com.example.demo.entity.User ..> com.example.demo.entity.Entity
+com.example.demo.entity.User ..> com.example.demo.entity.GeneratedValue
+com.example.demo.entity.User ..> com.example.demo.entity.Id
+com.example.demo.entity.User ..> com.example.demo.entity.OneToMany
+com.example.demo.entity.User ..> com.example.demo.entity.Table
+com.example.demo.entity.User ..> java.util.List
+com.example.demo.repository.MessageRepository ..> com.example.demo.entity.Message
+com.example.demo.repository.MessageRepository ..> java.util.List
+com.example.demo.repository.MessageRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.example.demo.repository.TicketRepository ..> org.springframework.stereotype.Repository
+com.example.demo.repository.TicketRepository ..> com.example.demo.entity.Ticket
+com.example.demo.repository.TicketRepository ..> com.example.demo.entity.User
+com.example.demo.repository.TicketRepository ..> java.util.List
+com.example.demo.repository.TicketRepository --|> org.springframework.data.jpa.repository.JpaRepository
+com.example.demo.repository.UserRepository ..> org.springframework.stereotype.Repository
+com.example.demo.repository.UserRepository ..> com.example.demo.entity.User
+com.example.demo.repository.UserRepository --|> org.springframework.data.jpa.repository.JpaRepository
+@enduml

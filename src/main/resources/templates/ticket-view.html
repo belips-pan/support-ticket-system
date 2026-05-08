@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h3 th:text="'Ticket #' + ${ticket.id} + ': ' + ${ticket.title}"></h3>
+        </div>
+        <div class="card-body">
+            <p><strong>Περιγραφή:</strong> <span th:text="${ticket.description}"></span></p>
+            <p><strong>Πελάτης:</strong> <span th:text="${ticket.sender.fullName}"></span></p>
+            <hr>
+            
+            <h5>Ιστορικό Συνομιλίας</h5>
+            <div th:each="msg : ${chatHistory}" class="mb-2 p-2 border rounded">
+                <small th:text="${msg.senderName} + ' (' + ${msg.sentAt} + '):'"></small>
+                <p th:text="${msg.content}" class="mb-0"></p>
+            </div>
+
+            <form th:action="@{/admin/solve}" method="post" class="mt-4 p-3 border rounded bg-light">
+                <h5>Ολοκλήρωση & Χρέωση</h5>
+                <input type="hidden" name="ticketId" th:value="${ticket.id}">
+                <div class="mb-3">
+                    <label>Τελική Απάντηση:</label>
+                    <textarea name="response" class="form-control" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label>Ποσό Χρέωσης (€):</label>
+                    <input type="number" name="amount" step="0.01" class="form-control" value="10.00">
+                </div>
+                <button type="submit" class="btn btn-success w-100">Κλείσιμο Ticket & Χρέωση</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
